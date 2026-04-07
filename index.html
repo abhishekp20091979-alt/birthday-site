@@ -75,7 +75,7 @@ body {
 .photo-card img {
   .photo-card img {
   width: 100%;
-  height: 100%;
+  height: 140px;   /* 👈 controls size on phone */
   object-fit: cover;
   transition: 0.4s;
 }
@@ -106,8 +106,11 @@ body {
 /* MOBILE FIX */
 @media (max-width: 600px) {
   .photo-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px;
+}
 }
 
 /* MODAL */
