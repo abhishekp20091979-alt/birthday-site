@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ani</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: white;
+  background: 
+    linear-gradient(rgba(26,10,46,0.85), rgba(45,21,80,0.9)),
+    url('bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+.main-name {
+  font-size: clamp(32px, 8vw, 60px);
+  letter-spacing: 3px;
+}
+.memories-btn {
+  margin: 10px 5px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: 1px solid gold;
+  background: transparent;
+  color: gold;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* MESSAGE */
+.message-card {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* PHOTO SECTION */
+.photo-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.photo-grid {
+  .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.photo-card img {
+  .photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+}
+
+.photo-card:hover img {
+  transform: scale(1.08);
+}
+
+.caption {
+  .caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+  font-size: 14px; /* bigger */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  color: #fff;
+}
+}
+
+.photo-card {
+  box-shadow: 0 0 10px rgba(212,175,55,0.15);
+}
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+  .photo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+.modal img {
+  display: block;
+  margin: auto;
+  max-width: 95%;
+  margin-top: 20%;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="hero">
+  <div class="main-name">Happy Birthday ANI</div>
+
+  <button onclick="scrollToMemories()" class="memories-btn">
+    Our Memories ↓
+  </button>
+
+  <button onclick="playMusic()" class="memories-btn">
+    Play Music 🎶
+  </button>
+</div>
+
+<div class="message-card">
+  <p>My dear Ani, you’ve always been more than family to me.</p>
+  <p>Every moment with you means something special.</p>
+  <p>I am truly lucky and blessed to have you — and even though we are cousins, you have always been my sister in every way that matters.</p>
+  <p>I wish we had grown up as siblings, but honestly? This is just as beautiful.</p>
+  <p>Thank you for always having my back, for being the ears for all my nonsense problems, and for never once making me feel small. </p>
+  <p> You are the loveliest, kindest person I know — and my absolute best sister.</p>
+  <p>
+    I am so proud of the person you are becoming, and I can't wait to see all the amazing things you will achieve.
+  </p>
+  <p>Here’s to 18 — your best chapter starts now 🥂</p>
+</div>
+
+<!-- PHOTOS -->
+<div class="photo-section" id="photoSection">
+  <h2>Our Moments</h2>
+
+  <div class="photo-grid">
+
+    <div class="photo-card">
+      <img src="img1.jpeg" onclick="openModal(this.src)">
+      <div class="caption">Family ❤️</div>
+    </div>
+
+    <div class="photo-card">
+      <img src="img2.jpeg" onclick="openModal(this.src)">
+      <div class="caption">Us 🤍</div>
+    </div>
+
+    <div class="photo-card">
+      <img src="img3.jpeg" onclick="openModal(this.src)">
+      <div class="caption">DON😭✨</div>
+    </div>
+
+    <div class="photo-card">
+      <img src="img4.jpeg" onclick="openModal(this.src)">
+      <div class="caption">Forever memories 💫</div>
+    </div>
+
+  </div>
+
+  <p style="padding: 0 20px; font-size: 13px; opacity: 0.8;">
+    These aren’t just pictures… they’re moments that stay forever 🤍
+  </p>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <img id="modal-img">
+</div>
+
+<script>
+function scrollToMemories() {
+  document.getElementById('photoSection').scrollIntoView({ behavior: 'smooth' });
+}
+
+function playMusic() {
+  document.getElementById('bg-music').play();
+}
+
+function openModal(src) {
+  document.getElementById('modal').style.display = 'block';
+  document.getElementById('modal-img').src = src;
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
